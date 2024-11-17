@@ -1,17 +1,16 @@
-import './globals.css'
+import '@/styles/globals.css'
 
 import type { Metadata } from 'next'
-import localFont from 'next/font/local'
+import { Inter } from 'next/font/google'
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
-})
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
+import FaviconLinks from '@/components/common/fav-icon-links'
+import { Footer } from '@/components/footer'
+import Navbar from '@/components/navigation/navbar'
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
@@ -25,10 +24,18 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en'>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {children}
+    <html lang='en' suppressHydrationWarning className={`${inter.variable}`}>
+      <FaviconLinks />
+      <body>
+        <>
+          <div className='flex min-h-screen flex-col justify-between pt-[3.75rem] md:pt-[4.5rem]'>
+            <div>
+              <Navbar />
+              <main>{children}</main>
+            </div>
+            <Footer />
+          </div>
+        </>
       </body>
     </html>
   )
