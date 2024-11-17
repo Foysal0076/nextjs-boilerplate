@@ -1,10 +1,11 @@
-import unusedImports from "eslint-plugin-unused-imports"
-import simpleImportSort from "eslint-plugin-simple-import-sort"
-import checkFile from 'eslint-plugin-check-file'
 import path from "node:path"
 import { fileURLToPath } from "node:url"
-import js from "@eslint/js"
+
 import { FlatCompat } from "@eslint/eslintrc"
+import js from "@eslint/js"
+import checkFile from 'eslint-plugin-check-file'
+import simpleImportSort from "eslint-plugin-simple-import-sort"
+import unusedImports from "eslint-plugin-unused-imports"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -14,6 +15,7 @@ const compat = new FlatCompat({
   allConfig: js.configs.all
 })
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default [...compat.extends("next/core-web-vitals"), {
   plugins: {
     "check-file": checkFile,
@@ -23,7 +25,7 @@ export default [...compat.extends("next/core-web-vitals"), {
 
   languageOptions: {
     globals: {},
-    ecmaVersion: 5,
+    ecmaVersion: 2022,
     sourceType: "module",
   },
 

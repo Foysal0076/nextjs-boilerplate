@@ -1,7 +1,7 @@
 export default function HomeHero() {
   return (
-    <div>
-      <h1>HomeHero</h1>
+    <div className='screen-centered-content'>
+      <h1 className='h1 text-center'>Welcome to the Nextjs 15 Boilerplate</h1>
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 import NavDrawerMenu from '@/components/navigation/nav-drawer/nav-drawer-menu'
@@ -13,8 +14,24 @@ export default function Navbar() {
         className='flex w-full items-center justify-between bg-background px-4 md:px-8'
         aria-label='Main navigation'>
         <div className='tracking-tighter'>
-          <Link href={pageRoutes.home} className='h5 font-medium text-primary'>
-            Home
+          <Link href={pageRoutes.home}>
+            <Image
+              src='/images/site-logo-light.png'
+              className='block dark:hidden'
+              alt='Logo Light'
+              width={40}
+              height={40}
+              priority
+            />
+            <Image
+              src='/images/site-logo-dark.png'
+              className='hidden dark:block'
+              alt='Logo Dark'
+              aria-hidden='true'
+              width={40}
+              height={40}
+              priority
+            />
           </Link>
         </div>
         <div className='flex gap-4'>
