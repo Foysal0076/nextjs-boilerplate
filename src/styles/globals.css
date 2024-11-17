@@ -33,6 +33,10 @@
     /* Navbar Height */
     --navbar-height: 3.75rem;
     --navbar-height-md: 4.5rem;
+
+    /* Shadows */
+    --box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+    --box-shadow-top: 0px -4px 10px 0px rgba(0, 0, 0, 0.1);
   }
 
   .dark {
@@ -60,6 +64,10 @@
     --chart-3: 30 80% 55%; /* #F59E0B */
     --chart-4: 280 65% 60%; /* #8B5CF6 */
     --chart-5: 340 75% 55%; /* #EC4899 */
+
+    /* Shadows */
+    --box-shadow: 0px 4px 10px 0px rgba(255, 255, 255, 0.05);
+    --box-shadow-top: 0px -4px 10px 0px rgba(255, 255, 255, 0.05);
   }
 
   *,
@@ -94,18 +102,18 @@
   }
 
   .h3 {
-    @apply text-[1.5rem] font-normal leading-[1.8125rem] md:text-[2.375rem] md:font-medium md:leading-[2.875rem];
+    @apply text-[1.5rem] leading-[1.8125rem] md:text-[2.375rem] md:leading-[2.875rem];
   }
 
   .h4 {
-    @apply text-[1.375rem] font-normal leading-6 md:text-[2rem] md:leading-[2.375rem];
+    @apply text-[1.375rem] leading-6 md:text-[2rem] md:leading-[2.375rem];
   }
 
   .h5 {
-    @apply text-[1.25rem] font-normal leading-[1.375rem] md:text-[1.625rem] md:leading-[2rem];
+    @apply text-[1.25rem] leading-[1.375rem] md:text-[1.625rem] md:leading-[2rem];
   }
 
   .h6 {
-    @apply text-[1.125rem] font-normal leading-[1.375rem] md:text-[1.375rem] md:leading-[1.625rem];
+    @apply text-[1.125rem] leading-[1.375rem] md:text-[1.375rem] md:leading-[1.625rem];
   }
 }

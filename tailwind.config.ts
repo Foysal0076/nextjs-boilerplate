@@ -62,6 +62,13 @@ export default {
           '5': 'hsl(var(--chart-5))',
         },
       },
+      borderRadius: {
+        default: 'var(--radius)',
+      },
+      boxShadow: {
+        DEFAULT: 'var(--box-shadow)',
+        top: 'var(--box-shadow-top)',
+      },
     },
   },
   plugins: [
