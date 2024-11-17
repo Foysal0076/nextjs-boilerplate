@@ -3,9 +3,10 @@ import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
-import FaviconLinks from '@/components/common/fav-icon-links'
+import FaviconLinks from '@/components/fav-icon-links'
 import { Footer } from '@/components/footer'
 import Navbar from '@/components/navigation/navbar'
+import NextThemeProvider from '@/components/theme/next-theme-provider'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -26,16 +27,16 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning className={`${inter.variable}`}>
       <FaviconLinks />
-      <body>
-        <>
-          <div className='flex min-h-screen flex-col justify-between pt-[3.75rem] md:pt-[4.5rem]'>
+      <body suppressHydrationWarning>
+        <NextThemeProvider>
+          <div className='flex min-h-screen flex-col justify-between pt-[var(--navbar-height)] md:pt-[var(--navbar-height-md)]'>
             <div>
               <Navbar />
               <main>{children}</main>
             </div>
             <Footer />
           </div>
-        </>
+        </NextThemeProvider>
       </body>
     </html>
   )
