@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js 15 + Typescript + Tailwind CSS Boilerplate
 
 ## Getting Started
 
-First, run the development server:
+Recommended to use [pnpm](https://pnpm.io/) as the package manager.
 
 ```bash
+pnpm dev
+# or
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
 # or
 bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tools and Technologies
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Core
 
-## Learn More
+- [Next.js 15](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-To learn more about Next.js, take a look at the following resources:
+### UI and Styling
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Class Variance Authority](https://cva.style/docs) - For creating UI component variants
+- [Tailwind Merge](https://github.com/dcastil/tailwind-merge) - For merging Tailwind CSS classes
+- [clsx](https://github.com/lukeed/clsx) - For constructing className strings
+- [Autoprefixer](https://github.com/postcss/autoprefixer) - For adding vendor prefixes to CSS
+- [Next Themes](https://github.com/pacocoursey/next-themes) - For dark/light theme switching
+- [Nextjs Toploader](https://github.com/TheSGJ/nextjs-toploader) - For page loading progress bar
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Code Quality
 
-## Deploy on Vercel
+- [ESLint](https://eslint.org/) - For code linting
+- [Prettier](https://prettier.io/) - For code formatting
+- [Husky](https://typicode.github.io/husky/) - For Git hooks
+- [lint-staged](https://github.com/okonet/lint-staged) - For running linters on staged files
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Tailwind Plugins
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [@tailwindcss/typography](https://tailwindcss.com/docs/typography-plugin) - For styling prose content
+- [@tailwindcss/forms](https://github.com/tailwindlabs/tailwindcss-forms) - For styling form elements
+- [@tailwindcss/container-queries](https://github.com/tailwindlabs/tailwindcss-container-queries) - For container query support
+
+### ESLint Plugins
+
+- [eslint-plugin-check-file](https://github.com/DukeLuo/eslint-plugin-check-file)
+- [eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort)
+- [eslint-plugin-unused-imports](https://github.com/sweepline/eslint-plugin-unused-imports)
+
+### Directory Structure Explanation
+
+- **`app/`**: Contains Next.js 13+ app router pages and layouts
+
+  - Pages are organized by route segments
+  - Each page can have its own loading, error, and layout components
+
+- **`components/`**: Reusable components organized by type
+
+  - `containers/`: Wrapper components
+  - `icons/`: Icon components
+  - `navigation/`: Navigation components like navbar and drawer
+  - `theme/`: Theme-related components (theme switcher, provider)
+  - `ui/`: Base UI components (buttons, inputs, etc.)
+
+- **`features/`**: Feature-specific components
+
+  - Components are grouped by feature/domain
+  - Each feature can have its own components, hooks, and utils
+  - Examples: `authentication`, `blog`, `dashboard`, `home`, `pricing`, `settings`
+
+- **`shared/`**: Shared configurations and constants
+
+  - `config/`: Application-wide configuration files
+  - Contains site config, metadata, and routes
+
+- **`styles/`**: Global styles and Tailwind CSS configurations
+
+  - Global styles
+  - Tailwind component and utility classes
+
+- **`templates/`**: Page templates
+
+  - Layout templates for different pages
+  - Compose components for complete pages
+
+- **`utils/`**: Utility functions and helpers
+  - Common utility functions
+
+### Key Files
+
+- `tailwind.config.ts`: Tailwind CSS configuration
+- `eslint.config.js`: ESLint configuration
+- `.prettierrc`: Prettier configuration
+- `tsconfig.json`: TypeScript configuration
