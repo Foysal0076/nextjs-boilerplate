@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { Button, Input } from '@/components/ui'
+import { Button, Input, Textarea } from '@/components/ui'
 import { EnvelopeIcon, KeyIcon } from '@/icons'
 
 export default function DemoComponents() {
@@ -33,6 +33,17 @@ export default function DemoComponents() {
         <Button variant='secondary'>Secondary</Button>
         <Button variant='ghost'>Ghost</Button>
         <Button variant='link'>Link</Button>
+        <Button loading>Loading</Button>
+        <Button loading>Default</Button>
+        <Button variant='destructive' loading>
+          Destructive
+        </Button>
+        <Button variant='outline' loading>
+          Outline
+        </Button>
+        <Button variant='secondary' loading>
+          Secondary
+        </Button>
       </div>
 
       <div className='flex flex-wrap gap-4'>
@@ -62,6 +73,19 @@ export default function DemoComponents() {
             adornment: <KeyIcon />,
             onClick: togglePasswordType,
           }}
+        />
+        <Textarea label='Textarea' placeholder='Default' />
+        <Textarea label='Textarea' placeholder='Error' error='Error message' />
+        <Textarea
+          label='Textarea'
+          placeholder='Default'
+          helperText='Helper text'
+        />
+        <Textarea
+          label='Textarea Disabled'
+          placeholder='Default'
+          disabled
+          className='resize-none'
         />
       </div>
 
