@@ -59,8 +59,8 @@ export default [...compat.extends("next/core-web-vitals"), {
     "check-file/folder-naming-convention": [
       "error",
       {
-        "src/**/*": "NEXT_JS_APP_ROUTER_CASE",
-      },
+        "src/**/*": "NEXT_JS_APP_ROUTER_CASE"
+      }
     ],
 
     "unused-imports/no-unused-imports": "warn",

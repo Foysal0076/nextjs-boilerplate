@@ -1,11 +1,13 @@
+import { SVGProps } from 'react'
+
 import { cn } from '@/utils'
 
-type Props = React.SVGProps<SVGSVGElement>
+type Props = SVGProps<SVGSVGElement>
 
-export const Spinner = ({ className, ...props }: Props) => {
+const Spinner = ({ className, ...props }: Props) => {
   return (
     <svg
-      className={cn('-ml-1 h-6 w-6 animate-spin text-primary', className)}
+      className={cn('h-6 w-6 animate-spin text-primary', className)}
       xmlns='http://www.w3.org/2000/svg'
       fill='none'
       viewBox='0 0 24 24'
@@ -24,3 +26,7 @@ export const Spinner = ({ className, ...props }: Props) => {
     </svg>
   )
 }
+
+Spinner.displayName = 'Spinner'
+
+export { Spinner }

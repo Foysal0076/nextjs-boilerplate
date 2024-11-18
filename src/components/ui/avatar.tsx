@@ -15,6 +15,7 @@ const Avatar = ({ name, url, className, textClassName }: Props) => {
 
   return (
     <div
+      data-testid='avatar'
       className={cn(
         `relative flex h-8 w-8 items-center justify-center rounded-full border bg-card text-sm font-bold text-card-foreground`,
         className
