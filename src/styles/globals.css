@@ -42,8 +42,8 @@
   .dark {
     --background: 224 71.4% 4.1%; /* #0A0B0F */
     --foreground: 210 20% 98%; /* #F9FAFB */
-    --card: 224 71.4% 4.1%; /* #0A0B0F */
-    --card-foreground: 210 20% 98%; /* #F9FAFB */
+    --card: 222.2 84% 4.9%; /* #0A0B0F */
+    --card-foreground: 210 40% 98%; /* #F9FAFB */
     --popover: 224 71.4% 4.1%; /* #0A0B0F */
     --popover-foreground: 210 20% 98%; /* #F9FAFB */
     --primary: 263.4 70% 50.4%; /* #7C3AED */
@@ -119,5 +119,8 @@
 
   .screen-centered-content {
     @apply flex min-h-[80vh] flex-col items-center justify-center;
+  }
+  .card {
+    @apply rounded-default border bg-card text-card-foreground shadow-sm;
   }
 }
