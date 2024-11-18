@@ -26,7 +26,7 @@ export default function DemoComponents() {
         <div className='h-28 w-28 rounded border bg-card shadow-top' />
       </div>
 
-      <div className='flex flex-wrap gap-4'>
+      <div className='card flex flex-wrap gap-4 p-6'>
         <Button>Default</Button>
         <Button variant='destructive'>Destructive</Button>
         <Button variant='outline'>Outline</Button>
@@ -46,7 +46,7 @@ export default function DemoComponents() {
         </Button>
       </div>
 
-      <div className='flex flex-wrap gap-4'>
+      <div className='card flex flex-wrap gap-4 p-6'>
         <Input
           label='Default Input'
           placeholder='Default'
@@ -89,7 +89,7 @@ export default function DemoComponents() {
         />
       </div>
 
-      <div className='space-y-2'>
+      <div className='card space-y-2 p-6'>
         <h1 className='h1'>H1 Hello World </h1>
         <h2 className='h2'>H2 Hello World </h2>
         <h3 className='h3'>H3 Hello World </h3>
