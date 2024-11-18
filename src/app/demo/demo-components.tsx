@@ -1,8 +1,17 @@
 'use client'
 
-import { Button } from '@/components/ui'
+import { useState } from 'react'
+
+import { Button, Input } from '@/components/ui'
+import { EnvelopeIcon, KeyIcon } from '@/icons'
 
 export default function DemoComponents() {
+  const [passwordType, setPasswordType] = useState<'text' | 'password'>(
+    'password'
+  )
+  const togglePasswordType = () =>
+    setPasswordType((prev) => (prev === 'text' ? 'password' : 'text'))
+
   return (
     <div className='container flex flex-col gap-4 py-6 md:gap-6'>
       <div className='flex flex-wrap gap-4'>
@@ -24,6 +33,36 @@ export default function DemoComponents() {
         <Button variant='secondary'>Secondary</Button>
         <Button variant='ghost'>Ghost</Button>
         <Button variant='link'>Link</Button>
+      </div>
+
+      <div className='flex flex-wrap gap-4'>
+        <Input
+          label='Default Input'
+          placeholder='Default'
+          helperText='Helper text'
+        />
+        <Input label='Disabled Input' placeholder='Disabled' disabled />
+        <Input
+          label='Error Input'
+          placeholder='Error'
+          error='Error message'
+          helperText='Helper text'
+        />
+        <Input
+          label='Email Input'
+          type='email'
+          placeholder='Default'
+          startAdornment={{ adornment: <EnvelopeIcon /> }}
+        />
+        <Input
+          label='Password Input'
+          type={passwordType}
+          placeholder='Default'
+          endAdornment={{
+            adornment: <KeyIcon />,
+            onClick: togglePasswordType,
+          }}
+        />
       </div>
 
       <div className='space-y-2'>
