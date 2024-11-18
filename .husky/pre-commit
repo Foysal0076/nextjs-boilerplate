@@ -6,11 +6,19 @@ pnpm check-types ||
   echo "❌❌❌ Type check failed ❌❌❌"
   exit 1
 )
+
+# If you check coverage the pnpm test is redundant, since coverage script runs the tests
 #pnpm test ||
 #(
 #  echo "❌❌❌ Tests failed ❌❌❌"
 #  exit 1
 #)
+
+pnpm test:coverage:silent ||
+(
+  echo "❌❌❌ Test coverage check failed ❌❌❌"
+  exit 1
+)
 
 # If everyting passes... try to run a build
 echo '✅✅✅ Allright...Code looks good...✅✅✅'
