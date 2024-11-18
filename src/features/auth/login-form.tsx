@@ -1,12 +1,42 @@
 'use client'
 import Link from 'next/link'
+import { useMemo, useState } from 'react'
 
 import { Button, Input } from '@/components/ui'
 import { useLoginForm } from '@/features/auth/hooks/use-login-form'
+import { EnvelopeIcon, EyeIcon, EyeSlashIcon, KeyIcon } from '@/icons'
 import { pageRoutes } from '@/shared/config/page-routes'
 
 const LoginForm = () => {
   const { handleSubmit, onsubmit, errors, register, loading } = useLoginForm()
+
+  const [passwordType, setPasswordType] = useState<'text' | 'password'>(
+    'password'
+  )
+
+  const togglePasswordVisibility = () => {
+    setPasswordType((prev) => (prev === 'password' ? 'text' : 'password'))
+  }
+
+  const passwordEndAdornment = useMemo(() => {
+    return passwordType === 'password'
+      ? {
+          adornment: (
+            <EyeIcon
+              className='cursor-pointer text-muted-foreground transition-colors hover:text-primary'
+              onClick={togglePasswordVisibility}
+            />
+          ),
+        }
+      : {
+          adornment: (
+            <EyeSlashIcon
+              className='cursor-pointer text-muted-foreground transition-colors hover:text-primary'
+              onClick={togglePasswordVisibility}
+            />
+          ),
+        }
+  }, [passwordType])
 
   return (
     <div className='card mx-auto w-full max-w-lg p-6 md:p-8'>
@@ -17,29 +47,26 @@ const LoginForm = () => {
         noValidate
         onSubmit={handleSubmit(onsubmit)}>
         <Input
-          // label='Email'
+          label='Email'
           placeholder='admin@test.com'
           {...register('email')}
-          // error={errors?.email ? errors.email.message : ''}
-          // startAdornment={{
-          //   adornment: (
-          //     <EnvelopeIcon className='text-neutral-800 dark:text-neutral-400' />
-          //   ),
-          //   className: '',
-          // }}
+          error={errors?.email ? errors.email.message : ''}
+          startAdornment={{
+            adornment: <EnvelopeIcon className='text-muted-foreground' />,
+            className: '',
+          }}
         />
         <Input
-          type='password'
-          // label='Password'
+          type={passwordType}
+          label='Password'
           placeholder='admin'
           {...register('password')}
-          // error={errors?.password ? errors.password.message : ''}
-          // startAdornment={{
-          //   adornment: (
-          //     <KeyIcon className='text-neutral-800 dark:text-neutral-400' />
-          //   ),
-          //   className: '',
-          // }}
+          error={errors?.password ? errors.password.message : ''}
+          startAdornment={{
+            adornment: <KeyIcon className='text-muted-foreground' />,
+            className: '',
+          }}
+          endAdornment={passwordEndAdornment}
         />
         <Button type='submit' className='mt-2 w-full' disabled={loading}>
           Login
