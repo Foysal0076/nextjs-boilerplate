@@ -1,8 +1,16 @@
+'use client'
+
 import Link from 'next/link'
 
 import CopyrightText from '@/components/footer/copyright-text'
+import AuthButtons from '@/features/auth/auth-buttons'
+import { useAuth } from '@/hooks/use-auth'
 
 export const DrawerContent = () => {
+  const { isAuthenticated, isLoading } = useAuth()
+
+  const isUnauthenticated = !isAuthenticated && !isLoading
+
   return (
     <nav
       className='flex h-full flex-col justify-between'
@@ -23,10 +31,11 @@ export const DrawerContent = () => {
           <CopyrightText productName='' />
         </div>
       </div>
-      <div className='shadow-top flex gap-8 px-6 py-4'>
-        {/* Other content */}
-        Other Content
-      </div>
+      {isUnauthenticated && (
+        <div className='flex gap-8 px-6 py-4 shadow-top'>
+          <AuthButtons fullWidth />
+        </div>
+      )}
     </nav>
   )
 }

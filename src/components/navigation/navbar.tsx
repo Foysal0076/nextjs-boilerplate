@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import NavDrawerMenu from '@/components/navigation/nav-drawer/nav-drawer-menu'
 import ThemeSwitch from '@/components/theme/theme-switch'
+import NavbarAuthMenu from '@/features/auth/navbar-auth-menu'
 import { pageRoutes } from '@/shared/config/page-routes'
 
 export default function Navbar() {
@@ -36,6 +37,7 @@ export default function Navbar() {
         </div>
         <div className='flex gap-4'>
           <ThemeSwitch />
+          <NavbarAuthMenu />
           <div className='flex md:hidden'>
             <NavDrawerMenu />
           </div>

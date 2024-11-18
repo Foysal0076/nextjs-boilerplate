@@ -120,4 +120,8 @@
   .screen-centered-content {
     @apply flex min-h-[80vh] flex-col items-center justify-center;
   }
+
+  .card {
+    @apply rounded-default border bg-card shadow-sm;
+  }
 }
