@@ -2,9 +2,7 @@
 
 import { signOut } from 'next-auth/react'
 
-import {
-  SignOutIcon,
-} from '@/components/icons'
+import { SignOutIcon } from '@/components/icons'
 import { Avatar, Spinner } from '@/components/ui'
 import AuthButtons from '@/features/auth/auth-buttons'
 import { useAuth } from '@/hooks/use-auth'
@@ -15,11 +13,7 @@ const NavbarAuthMenu = () => {
   const { isLoading, user } = useAuth()
 
   const handleLogout = async () => {
-    try {
-      signOut({ callbackUrl: pageRoutes.login })
-    } catch (error) {
-      signOut({ callbackUrl: pageRoutes.login })
-    }
+    signOut({ callbackUrl: pageRoutes.login })
   }
 
   // const toggleThemeToDark = () => {
@@ -34,19 +28,16 @@ const NavbarAuthMenu = () => {
 
   if (!user?.id)
     return (
-      <div className='hidden md:block'>
+      <div className='hidden items-center md:flex'>
         <AuthButtons />
       </div>
     )
 
   return (
     <div className='group relative'>
-      <div
-        role='button'
-        tabIndex={0}
-        className='flex cursor-pointer items-center gap-2'>
+      <button className='flex cursor-pointer items-center gap-2'>
         <Avatar className='h-10 w-10' name={user?.name ?? ''} />
-      </div>
+      </button>
       <menu
         aria-label='User menu'
         className='md:pd-5 absolute right-0 top-full z-10 hidden rounded-md border bg-card py-1 shadow-sm group-hover:block'>
@@ -77,13 +68,13 @@ const NavbarAuthMenu = () => {
             <ToggleDarkIcon />
             <span className='select-none text-inherit'>Dark</span>
           </li> */}
-          <li
-            role='button'
-            tabIndex={0}
-            onClick={handleLogout}
-            className='hover:bg-surface-100 dark:hover:bg-surface-200 flex w-full cursor-pointer items-center gap-2 rounded-md px-3 py-2 text-sm'>
-            <SignOutIcon className='h-5 w-5' />
-            <span className='select-none'>Logout</span>
+          <li>
+            <button
+              onClick={handleLogout}
+              className='flex w-full cursor-pointer items-center gap-2 px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground'>
+              <SignOutIcon className='h-5 w-5' />
+              <span className='select-none'>Logout</span>
+            </button>
           </li>
         </ul>
       </menu>
