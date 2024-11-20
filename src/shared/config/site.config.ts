@@ -25,7 +25,7 @@ export const metaObject = (
       url: process.env.SITE_URL!,
       siteName: 'nextjs-boilerplate',
       images: {
-        url: '/assets/images/og-image.png',
+        url: '/images/og-image.png',
         width: 1200,
         height: 630,
       },
