@@ -2,12 +2,15 @@ import { configureStore } from '@reduxjs/toolkit'
 // Or from '@reduxjs/toolkit/query/react'
 import { setupListeners } from '@reduxjs/toolkit/query'
 
+import { counterSlice } from '@/redux/slices/counter-slice'
+
 import { api } from './services/api'
 
 export const store = configureStore({
   reducer: {
     // Add the generated reducer as a specific top-level slice
     [api.reducerPath]: api.reducer,
+    counter: counterSlice.reducer,
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
@@ -18,7 +21,6 @@ export const store = configureStore({
 // optional, but required for refetchOnFocus/refetchOnReconnect behaviors
 // see `setupListeners` docs - takes an optional callback as the 2nd arg for customization
 setupListeners(store.dispatch)
-export type StoreType = typeof store
-export type AppDispatch = StoreType['dispatch']
-export type DispatchFunc = () => AppDispatch
-export type RootState = ReturnType<StoreType['getState']>
+
+export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>

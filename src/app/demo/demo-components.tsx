@@ -4,6 +4,8 @@ import { useState } from 'react'
 
 import { Button, Input, Textarea } from '@/components/ui'
 import { EnvelopeIcon, KeyIcon } from '@/icons'
+import { useAppDispatch, useAppSelector } from '@/redux/hooks'
+import { incrementCounter, selectCount } from '@/redux/slices/counter-slice'
 
 export default function DemoComponents() {
   const [passwordType, setPasswordType] = useState<'text' | 'password'>(
@@ -12,6 +14,10 @@ export default function DemoComponents() {
   const togglePasswordType = () =>
     setPasswordType((prev) => (prev === 'text' ? 'password' : 'text'))
 
+  const dispatch = useAppDispatch()
+  const count = useAppSelector(selectCount)
+
+  const handleIncrement = () => dispatch(incrementCounter())
   return (
     <div className='container flex flex-col gap-4 py-6 md:gap-6'>
       <div className='flex flex-wrap gap-4'>
