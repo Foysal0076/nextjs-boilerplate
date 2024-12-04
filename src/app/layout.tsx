@@ -10,6 +10,7 @@ import Navbar from '@/components/navigation/navbar'
 import RouteProgressBar from '@/components/route-progress-bar'
 import NextThemeProvider from '@/components/theme/next-theme-provider'
 import { AuthProvider } from '@/features/auth/auth-provider'
+import ReduxProvider from '@/redux/redux-provider'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -32,17 +33,19 @@ export default function RootLayout({
       <FaviconLinks />
       <body suppressHydrationWarning>
         <AuthProvider>
-          <RouteProgressBar />
-          <NextThemeProvider>
-            <div className='flex min-h-screen flex-col justify-between pt-[var(--navbar-height)] md:pt-[var(--navbar-height-md)]'>
-              <div>
-                <Navbar />
-                <main>{children}</main>
+          <ReduxProvider>
+            <RouteProgressBar />
+            <NextThemeProvider>
+              <div className='flex min-h-screen flex-col justify-between pt-[var(--navbar-height)] md:pt-[var(--navbar-height-md)]'>
+                <div>
+                  <Navbar />
+                  <main>{children}</main>
+                </div>
+                <Footer />
               </div>
-              <Footer />
-            </div>
-            <Toaster position='top-center' reverseOrder={false} />
-          </NextThemeProvider>
+              <Toaster position='top-center' reverseOrder={false} />
+            </NextThemeProvider>
+          </ReduxProvider>
         </AuthProvider>
       </body>
     </html>
